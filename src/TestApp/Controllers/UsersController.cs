@@ -3,42 +3,61 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using MongoDB.Bson;
+using TestApp.Core.Interfaces.Managers;
+using TestApp.Core.Models;
+using TestApp.Extensions;
 
 namespace TestApp.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("[controller]")]
     public class UsersController : Controller
     {
-        // GET api/values
+        private readonly IUsersManager usersManager;
+
+        public UsersController(IUsersManager usersManager)
+        {
+            this.usersManager = usersManager;
+        }
+
         [HttpGet]
-        public IEnumerable<string> GetAllUsers()
+        public JsonResult GetAllUsers()
         {
-            return new string[] { "value1", "value2" };
+            var users = this.usersManager.GetAllUsers();
+
+            return this.JsonSuccess(users);
         }
 
-        // GET api/values/5
-        [HttpGet("{id}")]
-        public string Get(int id)
+        [HttpGet("{userId:int}")]
+        public JsonResult GetUser(int userId)
         {
-            return "value";
+            var user = this.usersManager.GetUser(userId);
+
+            return this.JsonSuccess(user);
         }
 
-        // POST api/values
         [HttpPost]
-        public void Post([FromBody]string value)
+        public JsonResult CreateUser([FromBody]User user)
         {
+            this.usersManager.CreateUser(user);
+
+            return this.JsonSuccess();
         }
 
-        // PUT api/values/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody]string value)
+        [HttpPut]
+        public JsonResult UpdateUser([FromBody]User user)
         {
+            this.usersManager.UpdateUser(user.Id, user);
+
+            return this.JsonSuccess();
         }
 
-        // DELETE api/values/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
+        [HttpDelete("{userId:int}")]
+        public JsonResult DeleteUser(int userId)
         {
+            this.usersManager.DeleteUser(userId);
+
+            return this.JsonSuccess();
         }
     }
 }

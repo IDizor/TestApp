@@ -1,14 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
-using MongoDB.Bson;
+﻿using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
+using TestApp.Core.Interfaces.Data;
 
-namespace TestApp.Models
+namespace TestApp.Core.Models
 {
-    public class User
+    public class User : IDocument
     {
         public ObjectId Id { get; set; }
 

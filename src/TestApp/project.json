@@ -1,10 +1,9 @@
-﻿{
+{
   "dependencies": {
     "Microsoft.NETCore.App": {
       "version": "1.0.1",
       "type": "platform"
     },
-    "Microsoft.ApplicationInsights.AspNetCore": "1.0.0",
     "Microsoft.AspNetCore.Mvc": "1.0.1",
     "Microsoft.AspNetCore.Routing": "1.0.1",
     "Microsoft.AspNetCore.Server.IISIntegration": "1.0.0",
@@ -16,7 +15,10 @@
     "Microsoft.Extensions.Logging.Console": "1.0.0",
     "Microsoft.Extensions.Logging.Debug": "1.0.0",
     "Microsoft.Extensions.Options.ConfigurationExtensions": "1.0.0",
-    "mongocsharpdriver": "2.3.0"
+    "TestApp.Core": "1.0.0-*",
+    "TestApp.Business": "1.0.0-*",
+    "Scrutor": "1.10.1",
+    "Microsoft.AspNetCore.Diagnostics": "1.1.1"
   },
 
   "tools": {
