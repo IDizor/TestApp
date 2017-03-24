@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
 
 using MongoDB.Bson;
-using MongoDB.Driver;
 using TestApp.Core.Interfaces.Data;
 
 namespace TestApp.Core.Interfaces.Repositories

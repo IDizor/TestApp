@@ -29,7 +29,10 @@ namespace TestApp.Extensions
         public static JsonResult JsonSuccess(this Controller controller, object data = null,
             bool camelCase = true, bool ignoreReferenceLoop = false)
         {
-            var serializerSettings = new JsonSerializerSettings();
+            var serializerSettings = new JsonSerializerSettings()
+            {
+                DateFormatString = "G"
+            };
 
             if (camelCase)
             {
