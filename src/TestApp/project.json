@@ -5,7 +5,7 @@
       "type": "platform"
     },
     "Microsoft.AspNetCore.Mvc": "1.0.1",
-    "Microsoft.AspNetCore.Routing": "1.0.1",
+    "Microsoft.AspNetCore.Routing": "1.1.1",
     "Microsoft.AspNetCore.Server.IISIntegration": "1.0.0",
     "Microsoft.AspNetCore.Server.Kestrel": "1.0.1",
     "Microsoft.Extensions.Configuration.EnvironmentVariables": "1.0.0",
@@ -18,7 +18,8 @@
     "TestApp.Core": "1.0.0-*",
     "TestApp.Business": "1.0.0-*",
     "Scrutor": "1.10.1",
-    "Microsoft.AspNetCore.Diagnostics": "1.1.1"
+    "Microsoft.AspNetCore.Diagnostics": "1.1.1",
+    "Microsoft.AspNetCore.Mvc.WebApiCompatShim": "1.1.2"
   },
 
   "tools": {

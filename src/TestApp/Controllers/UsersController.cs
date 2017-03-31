@@ -1,6 +1,8 @@
 ﻿using System;
 
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.ModelBinding.Binders;
+using TestApp.Attributes;
 using TestApp.Core.Interfaces.Managers;
 using TestApp.Core.Models;
 using TestApp.Extensions;
@@ -67,14 +69,14 @@ namespace TestApp.Controllers
         /// </summary>
         /// <param name="tags">The tags.</param>
         /// <returns></returns>
-        [HttpGet("with-tags")]
-        public JsonResult GetUsersWithTags([FromQuery]string[] tags) // or implement custom binder to parse comma separated arrays
+        [HttpGet("with-tags/{tags}")]
+        public JsonResult GetUsersWithTags([ModelBinder(BinderType = typeof(ArrayModelBinder))]int[] tags)
         {
             try
             {
-                var users = this.usersManager.GetUsersWithTags(tags);
+                //var users = this.usersManager.GetUsersWithTags(tags);
 
-                return this.JsonSuccess(users);
+                return this.JsonSuccess(tags);
             }
             catch (ArgumentException ex)
             {
